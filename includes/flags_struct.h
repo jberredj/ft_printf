@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   flags_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 11:42:29 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/05 14:17:27 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/05 14:35:40 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
-
-int	ft_putnbr_fd(int n, int fd)
+#ifndef FLAGS_STRUCT_H
+# define FLAGS_STRUCT_H
+# include <stdarg.h>
+typedef struct s_pf_flags
 {
-	unsigned int	us_n;
-	int				len;
+	int		flags;
+	int		width;
+	short	width_state;
+	int		precision;
+	short	precision_state;
+	int		length;
+	int		type;
+	va_list	*list;
+	void	*data;
+	int		fd;
+	int		printed_char;
+}	t_pf_flags;
 
-	len = ft_intlen(n);
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		us_n = (unsigned int)n;
-		us_n = -us_n;
-	}
-	else
-		us_n = (unsigned int)(n);
-	if (us_n >= 10)
-	{
-		ft_putnbr_fd(us_n / 10, fd);
-	}
-	ft_putchar_fd((char)(us_n % 10 + '0'), fd);
-	return (n);
-}
+#endif

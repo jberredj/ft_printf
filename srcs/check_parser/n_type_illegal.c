@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   n_type_illegal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 11:42:29 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/05 14:30:06 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/05 14:30:17 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include "ft_printf.h"
+#include "checker_parser.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int n_type_illegal(t_pf_flags *flags)
 {
-	unsigned int	us_n;
-	int				len;
-
-	len = ft_intlen(n);
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		us_n = (unsigned int)n;
-		us_n = -us_n;
-	}
-	else
-		us_n = (unsigned int)(n);
-	if (us_n >= 10)
-	{
-		ft_putnbr_fd(us_n / 10, fd);
-	}
-	ft_putchar_fd((char)(us_n % 10 + '0'), fd);
-	return (n);
+	flags->flags &= ~HASH_FLAG;
+	flags->flags &= ~MINUS_FLAG;
+	flags->flags &= ~PLUS_FLAG;
+	flags->flags &= ~SPACE_FLAG;
+	flags->precision = 0;
+	flags->precision_state = NOT_SET;
+	flags->width = 0;
+	flags->width_state = NOT_SET;
+	return (0);
 }

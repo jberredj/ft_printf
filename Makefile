@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/04 20:48:36 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/05 14:35:01 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,13 @@ CC			=	clang
 CFLAGS		=	-Wall -Werror -Wextra
 
 INCLUDES	=	-I includes/ -I libs/libft/includes/
+
 PARSER		=	main_parser.c flag_parser.c width_parser.c precision_parser.c length_parser.c type_parser.c
 
-MODULE		=	parser
+CHECKER		=	check_parser.c c_type_illegal.c s_type_illegal.c p_type_illegal.c e_f_g_type_illegal.c d_i_type_illegal.c \
+				u_type_illegal.c n_type_illegal.c x_type_illegal.c flag_illegal.c
+
+MODULE		=	parser checker
 
 LIBS		=	libft
 
@@ -28,6 +32,11 @@ $(NAME): $(LIBS) $(MODULE) lib
 parser: objs libft
 	echo "Compiling Parser functions"
 	$(CC) $(INCLUDES) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS)
+	mv *.o objs/
+
+checker: objs libft
+	echo "Compiling Checker functions"
+	$(CC) $(INCLUDES) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS)
 	mv *.o objs/
 
 libft: objs

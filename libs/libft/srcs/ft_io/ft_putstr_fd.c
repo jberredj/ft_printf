@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 19:54:07 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/14 17:51:45 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 11:38:31 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (s != NULL)
-		write(fd, s, ft_strlen(s));
+		return (write(fd, s, ft_strlen(s)));
 }

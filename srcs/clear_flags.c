@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   clear_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 11:42:29 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/05 12:09:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int init_flags(t_pf_flags *flags)
 {
-	unsigned int	us_n;
-	int				len;
+	flags->list = NULL;
+	flags->printed_char = 0;
+	clear_flags(flags);
+	return (0);
+}
 
-	len = ft_intlen(n);
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		us_n = (unsigned int)n;
-		us_n = -us_n;
-	}
-	else
-		us_n = (unsigned int)(n);
-	if (us_n >= 10)
-	{
-		ft_putnbr_fd(us_n / 10, fd);
-	}
-	ft_putchar_fd((char)(us_n % 10 + '0'), fd);
-	return (n);
+int clear_flags(t_pf_flags *flags)
+{
+	flags->fd = 1;
+	flags->flags = 0;
+	flags->length = 0;
+	flags->precision = 0;
+	flags->precision_state = NOT_SET;
+	flags->type = 0;
+	flags->width = 0;
+	flags->width_state = NOT_SET;
+	flags->data = NULL;
+	return (0);
 }

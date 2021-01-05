@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 19:49:53 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/14 17:51:05 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 11:37:18 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	return(write(fd, &c, 1));
 }
