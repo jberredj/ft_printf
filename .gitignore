@@ -1,0 +1,6 @@
+main.c
+main_*_test.c
+*.a
+*.out
+*.o
+objs/
