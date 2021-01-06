@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 12:09:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 09:54:46 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int init_flags(t_pf_flags *flags)
+int init_flags(t_pf *flags)
 {
 	flags->list = NULL;
 	flags->printed_char = 0;
@@ -20,7 +20,7 @@ int init_flags(t_pf_flags *flags)
 	return (0);
 }
 
-int clear_flags(t_pf_flags *flags)
+int clear_flags(t_pf *flags)
 {
 	flags->fd = 1;
 	flags->flags = 0;
@@ -30,6 +30,5 @@ int clear_flags(t_pf_flags *flags)
 	flags->type = 0;
 	flags->width = 0;
 	flags->width_state = NOT_SET;
-	flags->data = NULL;
 	return (0);
 }

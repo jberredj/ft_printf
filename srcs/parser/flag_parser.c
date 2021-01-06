@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 19:02:46 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 19:22:00 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:55:01 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pf_parser.h"
 #include "parser_flag.h"
 
-int	flag_parser(char *str, t_pf_flags *flags)
+int	flag_parser(char *str, t_pf *flags)
 {
 	if (*str == '-')
 		flags->flags |= MINUS_FLAG | FOUND;

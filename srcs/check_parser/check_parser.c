@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 14:51:48 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 10:03:41 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "checker_parser.h"
 
-int check_illegal_combination(t_pf_flags *flags)
+int check_illegal_combination(t_pf *flags)
 {
 	if (flags->type & C_TYPE)
 		c_type_illegal(flags);
@@ -31,16 +31,26 @@ int check_illegal_combination(t_pf_flags *flags)
 		n_type_illegal(flags);
 	if (flags->type & X_TYPE)
 		x_type_illegal(flags);
+	if (flags->type == 0)
+		return (-1);
 	flag_illegal(flags);
 	return (0);
 }
 
-int check_parser(t_pf_flags *flags)
+int check_parser(t_pf *flags)
 {
 	check_illegal_combination(flags);
-	if (flags->length != 0)
-		length_data_alloc(flags);
-	else
-		data_alloc(flags);
+	if (flags->type & PERCENT_TYPE)
+		flags->type |= C_TYPE;
+	if (flags->width_state == VAR_VALUE)
+	{
+		flags->width = va_arg(*(flags->list), int);
+		flags->width_state = SET;
+	}
+	if (flags->precision_state == VAR_VALUE)
+	{
+		flags->precision = va_arg(*(flags->list), int);
+		flags->precision_state = SET;
+	}
 	return (0);
 }

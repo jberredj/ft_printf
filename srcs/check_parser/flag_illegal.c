@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:31:42 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 14:31:56 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:36 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "checker_parser.h"
 
-int flag_illegal(t_pf_flags *flags)
+int flag_illegal(t_pf *flags)
 {
 	if (flags->flags & MINUS_FLAG)
 		flags->flags &= ~ZERO_FLAG;

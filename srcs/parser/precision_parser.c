@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 19:04:16 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 19:53:05 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pf_parser.h"
 #include "libft.h"
 
-int	precision_parser(char *str, t_pf_flags *flags)
+int	precision_parser(char *str, t_pf *flags)
 {
 	flags->precision_state = NOT_SET;
 	if (*str == '.')

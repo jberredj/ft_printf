@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:09:45 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 19:24:05 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:16 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pf_parser.h"
 
-char	*main_parser(char *str, t_pf_flags *flags)
+char	*main_parser(char *str, t_pf *flags)
 {
 	int	flags_check;
 	int	width_check;

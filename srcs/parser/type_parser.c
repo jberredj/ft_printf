@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:18:33 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 19:26:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:23 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pf_parser.h"
 #include "parser_type.h"
 
-int	type_parser_next(char *str, t_pf_flags *flags)
+int	type_parser_next(char *str, t_pf *flags)
 {
 	if (*str == 'F')
 		flags->type |= F_TYPE | UPPER_TYPE;
@@ -36,7 +36,7 @@ int	type_parser_next(char *str, t_pf_flags *flags)
 	return (0);
 }
 
-int	type_parser(char *str, t_pf_flags *flags)
+int	type_parser(char *str, t_pf *flags)
 {
 	if (*str == 'd')
 		flags->type |= D_TYPE;

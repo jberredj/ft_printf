@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 10:21:14 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 18:37:01 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:55:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	print_int(t_pf_flags flags)
+void	print_int(t_pf flags)
 {
 	int len;
 

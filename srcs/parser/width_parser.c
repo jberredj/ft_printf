@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 19:03:28 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/04 19:52:44 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:09 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pf_parser.h"
 #include "libft.h"
 
-int	width_parser(char *str, t_pf_flags *flags)
+int	width_parser(char *str, t_pf *flags)
 {
 	if (ft_isdigit(*str) == 1)
 	{

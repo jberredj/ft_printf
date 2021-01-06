@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 14:24:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:55:12 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # define SET 1
 # define VAR_VALUE 4
 int		ft_printf(const char *str, ...);
-int		clear_flags(t_pf_flags *flags);
-int		init_flags(t_pf_flags *flags);
-void	print_int(t_pf_flags flags);
+int		clear_flags(t_pf *flags);
+int		init_flags(t_pf *flags);
+void	print_int(t_pf flags);
 
 #endif

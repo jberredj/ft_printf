@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:21:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 14:21:45 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 09:40:00 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int c_type_illegal(t_pf_flags *flags)
+int c_type_illegal(t_pf *flags)
 {
 	flags->flags &= ~ZERO_FLAG;
 	flags->flags &= ~HASH_FLAG;

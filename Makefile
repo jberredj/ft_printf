@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/05 14:35:01 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/06 10:09:19 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ parser: objs libft
 
 checker: objs libft
 	echo "Compiling Checker functions"
-	$(CC) $(INCLUDES) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS)
+	$(CC) $(INCLUDES) -c $(addprefix srcs/check_parser/, $(CHECKER)) srcs/clear_flags.c $(CFLAGS)
 	mv *.o objs/
 
 libft: objs
@@ -44,12 +44,14 @@ libft: objs
 	cd libs/libft && make ft_string lib
 	mv libs/libft/libft.a objs/libft.a
 	ar x objs/libft.a
-	rm objs/libft.a
 
 lib:
 	echo "Creating $(NAME)"
 	ar cr $(NAME) objs/*.o
 
+debug :
+	echo "COMPILING DEBUG EXECUTABLE"
+	$(CC) $(INCLUDES) main_parser_test.c $(NAME) -o debug.out
 objs:
 	mkdir -p objs
 

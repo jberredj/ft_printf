@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 12:10:41 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/05 17:54:32 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int process_print(const char *str, t_pf_flags *flags)
+int process_print(const char *str, t_pf *flags)
 {
 	int end;
 	int printed_char;
@@ -42,7 +42,7 @@ int process_print(const char *str, t_pf_flags *flags)
 int ft_printf(const char *str, ...)
 {
 	va_list		list;
-	t_pf_flags	flags;
+	t_pf	flags;
 	int			printed_char;
 
 	va_start(list, str);
