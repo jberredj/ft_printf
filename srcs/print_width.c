@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   print_width.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 14:00:47 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/06 14:31:49 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/06 14:32:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int print_width(t_pf *flags)
 {
-	unsigned int	us_n;
-	int				len;
-
-	len = ft_intlen(n);
-	if (n < 0)
+	while (flags->width > 0)
 	{
-		us_n = (unsigned int)n;
-		us_n = -us_n;
+		if (flags->flags & ZERO_FLAG)
+			ft_putchar_fd('0', flags->fd);
+		else
+			ft_putchar_fd(' ', flags->fd);
+		flags->width--;
+		flags->printed_char++;
 	}
-	else
-		us_n = (unsigned int)(n);
-	if (us_n >= 10)
-	{
-		ft_putnbr_fd(us_n / 10, fd);
-	}
-	ft_putchar_fd((char)(us_n % 10 + '0'), fd);
-	return (n);
+	return (0);
 }

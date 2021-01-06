@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 10:03:41 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 10:55:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int check_illegal_combination(t_pf *flags)
 		n_type_illegal(flags);
 	if (flags->type & X_TYPE)
 		x_type_illegal(flags);
-	if (flags->type == 0)
-		return (-1);
 	flag_illegal(flags);
 	return (0);
 }
 
 int check_parser(t_pf *flags)
 {
+	if (flags->type == 0)
+		return (-1);
 	check_illegal_combination(flags);
 	if (flags->type & PERCENT_TYPE)
 		flags->type |= C_TYPE;
@@ -52,5 +52,5 @@ int check_parser(t_pf *flags)
 		flags->precision = va_arg(*(flags->list), int);
 		flags->precision_state = SET;
 	}
-	return (0);
+	return (1);
 }

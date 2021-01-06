@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 19:54:07 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 11:38:31 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 11:24:39 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ int	ft_putstr_fd(char *s, int fd)
 {
 	if (s != NULL)
 		return (write(fd, s, ft_strlen(s)));
+	return (0);
 }

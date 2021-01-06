@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 17:55:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 14:32:39 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 int		ft_printf(const char *str, ...);
 int		clear_flags(t_pf *flags);
 int		init_flags(t_pf *flags);
-void	print_int(t_pf flags);
+int		print_int(t_pf *flags);
+int print_width(t_pf *flags);
 
 #endif

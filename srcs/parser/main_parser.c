@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:09:45 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/05 17:54:16 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/06 11:30:06 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 char	*main_parser(char *str, t_pf *flags)
 {
-	int	flags_check;
-	int	width_check;
-	int	precision_check;
-	int	length_check;
-	int	type_check;
+	char	*str_store;
+	int		flags_check;
 
+	str_store = str;
+	str++;
 	flags_check = 1;
 	while (flags_check == 1)
 	{
 		flags_check = flag_parser(str, flags);
 		str += flags_check;
 	}
-	width_check = width_parser(str, flags);
-	str += width_check;
-	precision_check = precision_parser(str, flags);
-	str += precision_check;
-	length_check = length_parser(str, flags);
-	str += length_check;
-	type_check = type_parser(str, flags);
-	str += type_check;
+	str += width_parser(str, flags);
+	str += precision_parser(str, flags);
+	str += length_parser(str, flags);
+	str += type_parser(str, flags);
+	if ((str - 1) == str_store)
+		return(str_store);
 	return (str);
 }
