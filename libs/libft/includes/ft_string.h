@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:10:32 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 14:57:24 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/18 10:55:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 int		ft_intlen(int n);
+int		ft_intlen_base(int n, int base);
 size_t	ft_cw_sep(char const *s, char sep);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);

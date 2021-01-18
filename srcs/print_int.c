@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:30:00 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 15:10:45 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/07 14:33:46 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int int_sign(int nbr, t_pf *flags)
 	if (flags->flags & PLUS_FLAG && nbr > 0)
 	{
 		ft_putchar_fd('+', flags->fd);
-		flags->width--;
 	}
 	int_precision(nbr, flags);
 	return (0);
@@ -80,26 +79,7 @@ int print_int(t_pf *flags)
 	int nbr;
 
 	nbr = va_arg(*(flags->list), int);
-	flags->width -= pf_int_len(nbr);
 	flags->precision -= pf_int_len(nbr);
-	if (flags->precision_state == SET && nbr == 0)
-		return (0);
-	if (flags->precision_state == SET && flags->precision > 0)
-		flags->width -= flags->precision;
-	if (flags->flags & SPACE_FLAG && nbr > 0)
-	{
-		flags->width--;
-		ft_putchar_fd(' ', flags->fd);
-	}
-	if (nbr < 0)
-	{
-		flags->width--;
-		flags->printed_char++;
-	}
-	if (!(flags->flags & MINUS_FLAG) && flags->width_state == SET)
-		print_width(flags);
-	int_sign(nbr, flags);
-	if (flags->width_state == SET)
-		print_width(flags);
+	flags->width -= pf_int_len(nbr);
 	return (0);
 }
