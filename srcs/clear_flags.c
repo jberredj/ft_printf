@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 09:54:46 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:58:21 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int clear_flags(t_pf *flags)
 {
 	flags->fd = 1;
 	flags->flags = 0;
-	flags->length = 0;
 	flags->precision = 0;
 	flags->precision_state = NOT_SET;
 	flags->type = 0;

@@ -5,3 +5,6 @@ main_*_test.c
 *.o
 objs/
 À faire.txtpft/
+e_f_g_type_illegal.c
+length_parser.c
+parser_length.h

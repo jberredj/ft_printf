@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:17:27 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 09:34:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:58:35 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_pf
 	short	width_state;
 	int		precision;
 	short	precision_state;
-	int		length;
 	int		type;
 	va_list	*list;
 	int		fd;

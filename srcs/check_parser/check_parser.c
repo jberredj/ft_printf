@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 10:55:04 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 12:57:01 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int check_illegal_combination(t_pf *flags)
 		s_type_illegal(flags);
 	if (flags->type & P_TYPE)
 		p_type_illegal(flags);
-	if (flags->type & (E_TYPE | F_TYPE | G_TYPE))
-		e_f_g_type_illegal(flags);
 	if (flags->type & (D_TYPE | I_TYPE))
 		d_i_type_illegal(flags);
 	if (flags->type & U_TYPE)
