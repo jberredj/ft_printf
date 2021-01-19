@@ -6,13 +6,13 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/06 15:11:58 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/18 15:34:20 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libftprintf.a
 CC			=	clang
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g
 
 INCLUDES	=	-I includes/ -I libs/libft/includes/
 
