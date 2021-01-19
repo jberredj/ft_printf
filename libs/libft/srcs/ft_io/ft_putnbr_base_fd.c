@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/18 11:17:53 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 14:49:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,27 @@ static int check_base(char *str)
 	return (i);
 }
 
-static int print_base(int n, char *str, size_t len, int fd)
+static int print_base(long long n, char *str, size_t len, int fd)
 {
-	unsigned int	us_n;
+	unsigned long long	ull_n;
 
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		us_n = (unsigned int)n;
-		us_n = -us_n;
+		ull_n = (unsigned long long)n;
+		ull_n = -ull_n;
 	}
 	else
-		us_n = (unsigned int)(n);
-	if (us_n >= len)
+		ull_n = (unsigned long long)(n);
+	if (ull_n >= len)
 	{
-		print_base(us_n / len, str, len, fd);
+		print_base(ull_n / len, str, len, fd);
 	}
-	ft_putchar_fd(str[us_n % len], fd);
+	ft_putchar_fd(str[ull_n % len], fd);
 	return (0);
 }
 
-void	ft_putnbr_base_fd(int n, char *str, int fd)
+void	ft_putnbr_base_fd(long long n, char *str, int fd)
 {
 	size_t			len;
 

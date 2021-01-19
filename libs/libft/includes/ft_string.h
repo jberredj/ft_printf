@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:10:32 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/18 10:55:08 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:35:24 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 int		ft_intlen(int n);
 int		ft_intlen_base(int n, int base);
+int		ft_lllen_base(long long n, int base);
 size_t	ft_cw_sep(char const *s, char sep);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
@@ -37,6 +38,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
+int		ft_malloc_check(void **p, size_t nmemb, size_t size);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);

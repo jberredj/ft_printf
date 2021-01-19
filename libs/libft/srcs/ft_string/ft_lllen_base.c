@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_io.h                                            :+:      :+:    :+:   */
+/*   ft_lllen_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/03 09:48:04 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 19:08:28 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/18 10:52:04 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/19 15:06:03 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_IO_H
-# define FT_IO_H
-# include <unistd.h>
-# include "libft.h"
+int	ft_lllen_base(long long n, int base)
+{
+	long long int_len;
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbr_base_fd(long long n, char *str, int fd);
-void	ft_put_unbr_fd(unsigned int n, int fd);
-
-#endif
+	if (base <= 2)
+		return (-1);
+	int_len = 0;
+	if (n <= 0)
+		int_len = 1;
+	while (n != 0)
+	{
+		n = n / base;
+		int_len++;
+	}
+	return (int_len);
+}

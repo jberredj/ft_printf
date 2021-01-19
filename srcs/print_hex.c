@@ -1,61 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 18:34:01 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 19:28:49 by jberredj         ###   ########.fr       */
+/*   Created: 2021/01/19 17:38:59 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/19 18:30:46 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
 
-int print_sign(int nbr, t_pf *flags)
+int base_selector(char **str, t_pf *flags)
 {
-	if (nbr < 0)
-	{
-		ft_putchar_fd('-', flags->fd);
-		flags->printed_char++;
-		flags->width--;
-	}
+	if (flags->type & UPPER_TYPE)
+		*str = "0123456789ABCDEF";
 	else
+		*str = "0123456789abcdef";
+	return (0);
+}
+
+int print_zero_x(t_pf *flags)
+{
+	if (flags->flags & HASH_FLAG)
 	{
-		if (flags->flags & PLUS_FLAG)
-			{
-				ft_putchar_fd('+', flags->fd);
-				flags->printed_char++;
-				flags->width--;
-			}
-		if (flags->flags & SPACE_FLAG)
-			{
-				ft_putchar_fd(' ', flags->fd);
-				flags->printed_char++;
-				flags->width--;
-			}
+		if (flags->type & UPPER_TYPE)
+			ft_putstr_fd("0X", flags->fd);
+		else
+			ft_putstr_fd("0X", flags->fd);
+		flags->printed_char += 2;
 	}
 	return (0);
 }
 
-int print_int(t_pf *flags)
+int print_hex(t_pf *flags)
 {
-	int nbr;
+	long long nbr;
 	int len;
+	char *base;
 	
-	nbr = va_arg(*(flags->list), int);
-	len = ft_intlen(nbr);
+	base = "";
+	nbr = va_arg(*(flags->list), long long);
+	len = ft_lllen_base(nbr, 16);
 	flags->precision -= len;
 	flags->width -= len;
 	if (flags->precision > 0)
 		flags->width -= flags->precision;
+	if (flags->flags & HASH_FLAG)
+		flags->width -= 2;
 	if (!(flags->flags & MINUS_FLAG))
 		print_width(flags);
-	print_sign(nbr, flags);
+	print_zero_x(flags);
 	print_precision(flags);
-	ft_put_unbr_fd(nbr, flags->fd);
+	base_selector(&base, flags);
+	ft_putnbr_base_fd(nbr, base, flags->fd);
 	flags->printed_char += len;
-	flags->flags &= ~ZERO_FLAG;
 	if (flags->flags & MINUS_FLAG)
 		print_width(flags);
 	return (0);
