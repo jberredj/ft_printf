@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:21:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/06 09:40:00 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 14:30:25 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,5 @@ int c_type_illegal(t_pf *flags)
 	flags->flags &= ~SPACE_FLAG;
 	flags->precision = 0;
 	flags->precision_state = NOT_SET;
-	flags->length &= ~LL_LENGTH;
-	flags->length &= ~HH_LENGTH;
-	flags->length &= ~H_LENGTH;
 	return (0);
 }

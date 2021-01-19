@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 19:08:51 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 12:59:21 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 14:34:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "ft_printf.h"
 # include "parser_type.h"
 # include "parser_flag.h"
-# include "parser_length.h"
 char	*main_parser(char *str, t_pf *flags);
 int		width_parser(char *str, t_pf *flags);
 int		type_parser(char *str, t_pf *flags);

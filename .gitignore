@@ -4,7 +4,10 @@ main_*_test.c
 *.out
 *.o
 objs/
-À faire.txtpft/
-e_f_g_type_illegal.c
-length_parser.c
-parser_length.h
+À faire.txt
+pft/
+42TESTERS-PRINTF/
+printf-tester/
+srcs/check_parser/e_f_g_type_illegal.c
+srcs/parser/length_parser.c
+includes/parser_length.h

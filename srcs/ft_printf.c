@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/18 11:41:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/19 14:22:40 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,16 @@ int print_adress(t_pf *flags)
 
 int print_selector(t_pf *flags)
 {
-	//if (flags->type & (D_TYPE | I_TYPE))
-	//	print_int(flags);
 	if (flags->type & C_TYPE)
 		print_char(flags);
 	if (flags->type & S_TYPE)
 		print_string(flags);
 	if (flags->type & P_TYPE)
 		print_adress(flags);
+	//if (flags->type & (D_TYPE | I_TYPE))
+	//	print_int(flags);
+	if (flags->type & X_TYPE)
+		print_hex(flags);
 	return (0);
 }
 
