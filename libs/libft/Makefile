@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/03 13:41:15 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/19 19:22:23 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/20 09:42:47 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ FT_LST			= 	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_l
 					ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 
-FT_IO			=	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr_base_fd.c ft_put_unbr_fd.c
+FT_IO			=	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr_base_fd.c ft_put_unbr_fd.c \
+					ft_putnbr_sign_fd.c
 
 FT_STRING		=	ft_atoi.c ft_itoa.c ft_intlen.c ft_cw_sep.c ft_split.c ft_strchr.c \
 					ft_strrchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \

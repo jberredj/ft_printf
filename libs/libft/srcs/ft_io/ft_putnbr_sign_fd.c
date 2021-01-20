@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_sign_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/20 09:40:38 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/20 09:41:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_sign_fd(int n, int fd, int print_sign)
 {
 	unsigned int	us_n;
 
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		if (print_sign == 1)
+			ft_putchar_fd('-', fd);
 		us_n = (unsigned int)n;
 		us_n = -us_n;
 	}
