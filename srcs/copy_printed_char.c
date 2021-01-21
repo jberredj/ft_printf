@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:08:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 17:08:27 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:53:29 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int copy_printed_char(t_pf *flags)
 {
 	int *n;
 
-	n = va_arg(*(flags->list), int *);
+	n = va_arg(*(flags->ap), int *);
 	*n = flags->printed_char;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 19:17:59 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:49:06 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft.h"
 # include "flags_struct.h"
-# include "ft_pf_parser.h"
-# include "parser_flag.h"
-# include "parser_type.h"
+# include "../libft/includes/libft.h"
+# include "parser.h"
 # include "checker_parser.h"
 # include "converter.h"
 # define NOT_SET 2

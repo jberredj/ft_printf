@@ -6,52 +6,57 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/19 17:39:43 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/21 16:42:28 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libftprintf.a
-CC			=	clang
-CFLAGS		=	-Wall -Werror -Wextra -g
-BONUS		=	-D BONUS=1
+NAME			=	libftprintf.a
+CC				=	clang
+CFLAGS			=	-Wall -Werror -Wextra -g
+BONUS			=	-D BONUS=0
 
-INCLUDES	=	-I includes/ -I libs/libft/includes/
+HEADERS			=	includes/
 
-PARSER		=	main_parser.c flag_parser.c width_parser.c precision_parser.c type_parser.c
-
-CHECKER		=	check_parser.c c_type_illegal.c s_type_illegal.c p_type_illegal.c d_i_type_illegal.c \
+PARSER			=	main_parser.c flag_parser.c width_parser.c precision_parser.c type_parser.c
+	
+CHECKER			=	check_parser.c c_type_illegal.c s_type_illegal.c p_type_illegal.c d_i_type_illegal.c \
 				u_type_illegal.c n_type_illegal.c x_type_illegal.c flag_illegal.c
 
-PRINTER		=	ft_printf.c clear_flags.c print_int.c print_width.c print_precision.c copy_printed_char.c print_hex.c
+PRINTER			=	ft_printf.c clear_flags.c print_int.c print_width.c print_precision.c copy_printed_char.c print_hex.c
 
-MODULE		=	parser checker printer
+MODULE			=	parser checker printer buffer
 
-LIBS		=	libft
+BUFFER			=	convert_int.c buffer.c
+
+LIBS			=	libft
 
 all: $(NAME)
 
 $(NAME): $(LIBS) $(MODULE) lib
 
-parser: objs libft
+bonus: BONUS = -D BONUS=1
+bonus: all
+
+parser: objs libft.a
 	echo "Compiling Parser functions"
-	$(CC) $(INCLUDES) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-checker: objs libft
+checker: objs libft.a
 	echo "Compiling Checker functions"
-	$(CC) $(INCLUDES) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-printer:
+printer: objs libft.a
 	echo "Compiling Printer functions"
-	$(CC) $(INCLUDES) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-libft: objs
+libft.a: 
 	echo "Compiling libft"
-	cd libs/libft && make ft_string ft_io lib
-	mv libs/libft/libft.a objs/libft.a
-	ar x objs/libft.a
+	make -C libft ft_string ft_io lib
+	cp libft/libft.a libft.a
+	cp libft.a $(NAME)
 
 lib:
 	echo "Creating $(NAME)"
@@ -59,7 +64,7 @@ lib:
 
 debug :
 	echo "COMPILING DEBUG EXECUTABLE"
-	$(CC) $(INCLUDES) -g main_parser_test.c $(NAME) -o debug.out
+	$(CC) -I $(HEADERS) -g main_parser_test.c $(NAME) -o debug.out
 objs:
 	mkdir -p objs
 
@@ -67,13 +72,22 @@ clean:
 	echo "Cleaning objects in objs and delete objs/"
 	rm -f *.o
 	rm -rf objs
-	cd libs/libft && make clean
+	make -C libft clean
 
 fclean:
 	echo "Deleting $(NAME)"
 	rm -f $(NAME)
+	rm -f libft.a
 	make clean
-	cd libs/libft && make fclean
+	make -C libft fclean
+
+buffer: CFLAGS	= -Wall -Wextra -g
+buffer: objs 
+	echo "Compiling Printer functions"
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(BUFFER)) srcs/clear_flags.c $(CFLAGS) 
+	mv *.o objs/
+	make lib
+	gcc -I $(HEADERS) buffer_test.c $(NAME) $(CFLAGS) -o buffer_test.out
 
 re:
 	make fclean

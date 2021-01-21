@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 12:58:21 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:27:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int init_flags(t_pf *flags)
 {
-	flags->list = NULL;
+	flags->ap = NULL;
+	ft_bzero(flags->buffer, BUFFER_SIZE);
+	flags->buf_count = 0;
 	flags->printed_char = 0;
 	clear_flags(flags);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 18:34:01 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/20 10:29:24 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:53:05 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int print_int(t_pf *flags)
 	int nbr;
 	int len;
 	
-	nbr = va_arg(*(flags->list), int);
+	nbr = va_arg(*(flags->ap), int);
 	len = pf_intlen(nbr);
 	flags->precision -= len;
 	flags->width -= len;

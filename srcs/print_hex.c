@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:38:59 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 18:30:46 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:53:25 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int print_hex(t_pf *flags)
 	char *base;
 	
 	base = "";
-	nbr = va_arg(*(flags->list), long long);
+	nbr = va_arg(*(flags->ap), long long);
 	len = ft_lllen_base(nbr, 16);
 	flags->precision -= len;
 	flags->width -= len;

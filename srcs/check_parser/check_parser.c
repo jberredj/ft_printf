@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 12:57:01 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:52:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int check_parser(t_pf *flags)
 		flags->type |= C_TYPE;
 	if (flags->width_state == VAR_VALUE)
 	{
-		flags->width = va_arg(*(flags->list), int);
+		flags->width = va_arg(*(flags->ap), int);
 		flags->width_state = SET;
 	}
 	if (flags->precision_state == VAR_VALUE)
 	{
-		flags->precision = va_arg(*(flags->list), int);
+		flags->precision = va_arg(*(flags->ap), int);
 		flags->precision_state = SET;
 	}
 	return (1);

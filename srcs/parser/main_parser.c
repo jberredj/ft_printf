@@ -6,11 +6,11 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:09:45 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 12:58:03 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 10:42:27 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pf_parser.h"
+#include "parser.h"
 
 char	*main_parser(char *str, t_pf *flags)
 {
