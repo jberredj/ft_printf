@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_precision.c                                  :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 17:16:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 17:21:35 by jberredj         ###   ########.fr       */
+/*   Created: 2020/11/18 16:45:06 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/22 15:45:48 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "converter.h"
-
-int print_precision(t_pf *flags)
+int	ft_toupper(int c)
 {
-	if (flags->precision_state == SET)
-	{
-	while (flags->precision > 0)
-		{
-			ft_putchar_fd('0', flags->fd);
-			flags->precision--;
-			flags->printed_char++;
-		}
-	}
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		c -= 0x20;
+	return (c);
 }

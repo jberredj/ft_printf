@@ -6,11 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:52:04 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/18 10:54:03 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:34:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_intlen_base(int n, int base)
+#include "ft_to.h"
+
+size_t	ft_intlen_base(int n, int base)
 {
 	int	int_len;
 

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:55:32 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 15:11:32 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:50:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_to.h"
 
-char	*ft_itoa(int n)
+char	*ft_lltoa(long long n)
 {
-	unsigned int	us_n;
-	int				str_len;
-	char			*str;
-	short			sign;
+	unsigned long long	us_n;
+	size_t				str_len;
+	char				*str;
+	short				sign;
 
 	str_len = ft_intlen(n);
 	sign = 1;
 	if (n < 0)
 		sign = -1;
-	us_n = (unsigned int)n;
+	us_n = (unsigned long long)n;
 	us_n *= sign;
 	str = (char*)ft_calloc(sizeof(char), (str_len + 1));
 	if (str == NULL)

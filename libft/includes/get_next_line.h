@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:58:32 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 16:45:30 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:41:52 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft.h"
+# include "ft_string.h"
 # define GNL_COPY 1
 # define GNL_NOCOPY 0
 # ifndef BUFFER_SIZE

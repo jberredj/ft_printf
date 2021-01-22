@@ -6,11 +6,9 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 11:38:22 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 14:58:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:43:16 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_ctype.h"
 
 int	ft_isblank(int c)
 {

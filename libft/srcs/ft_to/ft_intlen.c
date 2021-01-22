@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 16:45:06 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/08 10:58:23 by jberredj         ###   ########.fr       */
+/*   Created: 2020/12/03 10:27:02 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/22 14:45:41 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ctype.h"
+#include "ft_to.h"
 
-int	ft_tolower(int c)
+size_t	ft_intlen(int n)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 0x20;
-	return (c);
+	int	int_len;
+
+	int_len = 0;
+	if (n <= 0)
+		int_len = 1;
+	while (n != 0)
+	{
+		n = n / 10;
+		int_len++;
+	}
+	return (int_len);
 }

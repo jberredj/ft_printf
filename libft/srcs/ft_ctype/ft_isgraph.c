@@ -6,11 +6,9 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 11:33:50 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 15:00:59 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:43:41 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_ctype.h"
 
 int	ft_isgraph(int c)
 {

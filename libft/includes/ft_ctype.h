@@ -6,13 +6,12 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 09:54:04 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 14:51:22 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 16:01:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CTYPE_H
 # define FT_CTYPE_H
-# include "libft.h"
 
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
@@ -27,6 +26,4 @@ int	ft_ispunct(int c);
 int	ft_isspace(int c);
 int	ft_isupper(int c);
 int	ft_isxdigit(int c);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
 #endif

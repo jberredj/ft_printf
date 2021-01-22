@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 15:27:08 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:24:12 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ int init_flags(t_pf *flags)
 
 int clear_flags(t_pf *flags)
 {
-	flags->fd = 1;
-	flags->flags = 0;
 	flags->precision = 0;
 	flags->precision_state = NOT_SET;
-	flags->type = 0;
 	flags->width = 0;
 	flags->width_state = NOT_SET;
+	flags->length = 0;
+	flags->type = 0;
+	flags->fd = 1;
+	flags->flags = 0;
 	return (0);
 }

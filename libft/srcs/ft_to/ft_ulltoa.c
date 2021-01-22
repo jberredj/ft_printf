@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_width.c                                      :+:      :+:    :+:   */
+/*   ft_uitoa copy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/06 14:31:49 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/20 17:44:22 by jberredj         ###   ########.fr       */
+/*   Created: 2020/11/30 17:55:32 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/22 14:51:37 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_to.h"
 
-int print_width(t_pf *flags)
+char	*ft_ulltoa(unsigned long long n)
 {
-	while (flags->width > 0)
+	size_t			str_len;
+	char			*str;
+
+	str_len = ft_ulllen(n);
+	str = (char*)ft_calloc(sizeof(char), (str_len + 1));
+	if (str == NULL)
+		return (NULL);
+	str[str_len] = '\0';
+	while (str_len > 0)
 	{
-		if (flags->flags & ZERO_FLAG)
-			ft_putchar_fd('0', flags->fd);
-		else
-			ft_putchar_fd(' ', flags->fd);
-		flags->width--;
-		flags->printed_char++;
+		str[--str_len] = n % 10 + '0';
+		n = n / 10;
 	}
-	return (0);
+	return (str);
 }

@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:01:28 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 14:56:42 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:54:53 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LST_H
 # define FT_LST_H
 # include <stdlib.h>
-# include "libft.h"
+# include "ft_string.h"
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 12:09:45 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 10:42:27 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:28:49 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*main_parser(char *str, t_pf *flags)
 	}
 	str += width_parser(str, flags);
 	str += precision_parser(str, flags);
+	str += length_parser(str, flags);
 	str += type_parser(str, flags);
 	if ((str - 1) == str_store)
 		return(str_store);

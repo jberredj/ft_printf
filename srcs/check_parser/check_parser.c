@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 10:52:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:30:01 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "checker_parser.h"
 
-int check_illegal_combination(t_pf *flags)
+static int check_illegal_combination(t_pf *flags)
 {
 	if (flags->type & C_TYPE)
 		c_type_illegal(flags);
@@ -50,5 +50,7 @@ int check_parser(t_pf *flags)
 		flags->precision = va_arg(*(flags->ap), int);
 		flags->precision_state = SET;
 	}
+	if (BONUS == 0)
+		flags->length = 0;
 	return (1);
 }

@@ -6,92 +6,17 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 16:51:50 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/21 19:16:22 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "buffer.h"
-
-int print_char(t_pf *flags)
-{
-	// no 0# + flags
-	// no precision
-	char c;
-
-	if (flags->type & PERCENT_TYPE)
-		c = '%';
-	else		
-		c = (char)va_arg(*(flags->ap), int);
-	flags->width--;
-	if (!(flags->flags & MINUS_FLAG))
-		print_width(flags);
-	write(flags->fd, &c, 1);
-	flags->printed_char++;
-	if (flags->flags & MINUS_FLAG)
-		print_width(flags);
-	return (1);
-}
-
-int print_string(t_pf *flags)
-{
-	// no 0# + flags
-	char	*str;
-	int		len;
-
-	str = va_arg(*(flags->ap), char *);
-	if (flags->precision_state == NOT_SET)
-		len = ft_strlen(str);
-	else
-		len = flags->precision;
-	flags->width -= len;
-	if (!(flags->flags & MINUS_FLAG))
-		print_width(flags);
-	write(flags->fd, str, len);
-	flags->printed_char += len;
-	if (flags->flags & MINUS_FLAG)
-		print_width(flags);
-	return (1);
-}
-
-/*int print_adress(t_pf *flags)
-{
-	// no 0# + flags
-	// no precision
-	void *p;
-	int len;
-
-	p = va_arg(*(flags->ap), void *);
-	if (p != NULL)
-		len = ft_lllen_base((long long)p, 16) + 2;
-	else
-		len = 5;
-	flags->width -= len;
-	if (!(flags->flags & MINUS_FLAG))
-		print_width(flags);
-	if (p != NULL)
-	{
-		ft_putstr_fd("0x", flags->fd);
-		ft_putnbr_base_fd((long long)p, "0123456789abcdef", flags->fd);
-	}
-	else
-		ft_putstr_fd("(nil)", flags->fd);
-	flags->printed_char += len;
-	if (flags->flags & MINUS_FLAG)
-		print_width(flags);
-	return (0);
-}*/
-
-
-int print_adress(t_pf *flags)
-{
-	flags->flags |= HASH_FLAG;
-	print_hex(flags);
-	return (0);
-}
 
 int print_selector(t_pf *flags)
 {
+	int ret;
+
+	ret = 1;
 	/*if (flags->type & C_TYPE)
 		print_char(flags);
 	if (flags->type & S_TYPE)
@@ -99,12 +24,14 @@ int print_selector(t_pf *flags)
 	if (flags->type & P_TYPE)
 		print_adress(flags);*/
 	if (flags->type & (D_TYPE | I_TYPE))
-		convert_int(flags);
+		ret = convert_int(flags);
+	if (flags->type & U_TYPE)
+		ret = convert_uint(flags);
 	/*if (flags->type & X_TYPE)
 		print_hex(flags);*/
 	if (flags->type & N_TYPE && BONUS == 1)
 		copy_printed_char(flags);
-	return (0);
+	return (ret);
 }
 
 int process_print(const char *str, t_pf *flags)
@@ -115,22 +42,22 @@ int process_print(const char *str, t_pf *flags)
 	end = 0;
 	while (1)
 	{
-		error = 0;
+		error = 1;
 		if (*str == '\0')
 			break;
 		if (*str == '%' && (*str + 1) != '\0')
 		{
 			str = main_parser((char *)str, flags);
-			error = check_parser(flags);
-			print_selector(flags);
+			check_parser(flags);
+			error = print_selector(flags);
 			clear_flags(flags);	
 		}
-		if (error != 1)
+		if (error == 1)
 		{
 			add_to_buffer((char*)str, 1, flags);
 			str++;
 		}	
-		if (error == -2)
+		if (error == -1)
 			return (-1);
 	}
 	print_buffer(flags);

@@ -6,11 +6,11 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:40:58 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 15:06:02 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 14:29:26 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_to.h"
 
 static void	long_max(unsigned long long *res, int *sign)
 {

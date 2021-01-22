@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:17:27 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 16:48:44 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:19:00 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
 # endif
+
 typedef struct s_pf
 {
 	va_list	*ap;
@@ -28,6 +29,7 @@ typedef struct s_pf
 	short	width_state;
 	int		precision;
 	short	precision_state;
+	int		length;
 	int		type;
 }	t_pf;
 

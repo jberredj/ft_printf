@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/03 13:41:15 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/20 17:49:09 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/22 16:03:18 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,29 @@ BUFFER_SIZE		=	32
 
 FT_CTYPE		= 	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isblank.c ft_iscntrl.c ft_isdigit.c \
 					ft_isgraph.c ft_islower.c ft_isprint.c ft_ispunct.c ft_isspace.c ft_isupper.c \
-					ft_isxdigit.c ft_tolower.c ft_toupper.c
+					ft_isxdigit.c
 
 FT_LST			= 	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
 					ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 
-FT_IO			=	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr_base_fd.c ft_put_unbr_fd.c \
-					ft_putnbr_sign_fd.c
+FT_IO			=	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnbr_base_fd.c ft_put_unbr_fd.c
 
-FT_STRING		=	ft_atoi.c ft_itoa.c ft_intlen.c ft_cw_sep.c ft_split.c ft_strchr.c \
+FT_STRING		=	ft_cw_sep.c ft_split.c ft_strchr.c \
 					ft_strrchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
 					ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strtrim.c ft_substr.c	ft_bzero.c \
 					ft_calloc.c ft_memccpy.c ft_memcpy.c ft_memcmp.c ft_memchr.c ft_memmove.c \
-					ft_memset.c ft_intlen_base.c ft_lllen_base.c
+					ft_memset.c
+
+FT_TO			=	ft_atoi.c ft_itoa.c ft_intlen.c ft_intlen_base.c ft_lllen_base.c ft_uitoa.c \
+					ft_uintlen.c ft_lltoa.c ft_ulltoa.c ft_ulllen.c ft_lllen.c ft_tolower.c \
+					ft_toupper.c
 
 GET_NEXT_LINE	=	get_next_line.c get_next_line_utils.c
 
 INCLUDES_PATH	=	includes/
 
-LIBS			=	ft_ctype ft_lst ft_io ft_string get_next_line
+LIBS			=	ft_ctype ft_lst ft_io ft_string ft_to get_next_line
 
 all: $(NAME)
 	
@@ -58,9 +61,14 @@ ft_io: ft_string objs
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_io/, $(FT_IO)) $(CFLAGS)
 	mv *.o objs/
 
-ft_string: ft_ctype objs
+ft_string: objs
 	echo "Compiling ft_string.h functions"
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_string/, $(FT_STRING)) $(CFLAGS)
+	mv *.o objs/
+
+ft_to: ft_ctype ft_string objs
+	echo "Compiling ft_to.h functions"
+	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_to/, $(FT_TO)) $(CFLAGS)
 	mv *.o objs/
 
 get_next_line: ft_string

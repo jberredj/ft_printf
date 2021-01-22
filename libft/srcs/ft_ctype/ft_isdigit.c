@@ -6,11 +6,9 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:30:40 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/08 11:00:35 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:43:30 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_ctype.h"
 
 int	ft_isdigit(int c)
 {

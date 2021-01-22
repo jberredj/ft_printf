@@ -6,29 +6,31 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/21 16:42:28 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/22 16:08:33 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libftprintf.a
 CC				=	clang
 CFLAGS			=	-Wall -Werror -Wextra -g
-BONUS			=	-D BONUS=0
+BUFFER_SIZE		=	64
 
 HEADERS			=	includes/
 
-PARSER			=	main_parser.c flag_parser.c width_parser.c precision_parser.c type_parser.c
+PARSER			=	main_parser.c flag_parser.c width_parser.c precision_parser.c type_parser.c length_parser.c
 	
 CHECKER			=	check_parser.c c_type_illegal.c s_type_illegal.c p_type_illegal.c d_i_type_illegal.c \
-				u_type_illegal.c n_type_illegal.c x_type_illegal.c flag_illegal.c
+					u_type_illegal.c n_type_illegal.c x_type_illegal.c flag_illegal.c
 
-PRINTER			=	ft_printf.c clear_flags.c print_int.c print_width.c print_precision.c copy_printed_char.c print_hex.c
+CONVERTER		=	convert_int.c convert_int_utils.c process_width.c copy_printed_char.c
 
-MODULE			=	parser checker printer buffer
+PRINTER			=	ft_printf.c clear_flags.c buffer.c
 
-BUFFER			=	convert_int.c buffer.c
+MODULE			=	parser checker converter printer
 
 LIBS			=	libft
+
+BONUS			=	-D BONUS=0
 
 all: $(NAME)
 
@@ -47,14 +49,19 @@ checker: objs libft.a
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
+converter: objs libft.a
+	echo "Compiling Converter functions"
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/converter/, $(CONVERTER)) $(CFLAGS) $(BONUS)
+	mv *.o objs/
+
 printer: objs libft.a
 	echo "Compiling Printer functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS) -D BUFFER_SIZE=$(BUFFER_SIZE)
 	mv *.o objs/
 
 libft.a: 
 	echo "Compiling libft"
-	make -C libft ft_string ft_io lib
+	make -C libft ft_string ft_to ft_ctype lib
 	cp libft/libft.a libft.a
 	cp libft.a $(NAME)
 
@@ -62,7 +69,8 @@ lib:
 	echo "Creating $(NAME)"
 	ar cr $(NAME) objs/*.o
 
-debug :
+debug: CFLAGS	= -Wall -Wextra -g
+debug:
 	echo "COMPILING DEBUG EXECUTABLE"
 	$(CC) -I $(HEADERS) -g main_parser_test.c $(NAME) -o debug.out
 objs:
@@ -70,24 +78,16 @@ objs:
 
 clean:
 	echo "Cleaning objects in objs and delete objs/"
-	rm -f *.o
+	rm -rf libft.a
+	rm -rf *.o
 	rm -rf objs
 	make -C libft clean
 
 fclean:
 	echo "Deleting $(NAME)"
-	rm -f $(NAME)
-	rm -f libft.a
+	rm -rf $(NAME)
 	make clean
 	make -C libft fclean
-
-buffer: CFLAGS	= -Wall -Wextra -g
-buffer: objs 
-	echo "Compiling Printer functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(BUFFER)) srcs/clear_flags.c $(CFLAGS) 
-	mv *.o objs/
-	make lib
-	gcc -I $(HEADERS) buffer_test.c $(NAME) $(CFLAGS) -o buffer_test.out
 
 re:
 	make fclean

@@ -6,20 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:10:32 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/19 15:35:24 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/22 15:53:27 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 # include <stdlib.h>
-# include "libft.h"
 
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-int		ft_intlen(int n);
-int		ft_intlen_base(int n, int base);
-int		ft_lllen_base(long long n, int base);
 size_t	ft_cw_sep(char const *s, char sep);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);

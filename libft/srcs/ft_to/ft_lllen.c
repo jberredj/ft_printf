@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_sign_fd.c                                :+:      :+:    :+:   */
+/*   ft_intlen copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 20:05:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/20 09:41:08 by jberredj         ###   ########.fr       */
+/*   Created: 2020/12/03 10:27:02 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/22 14:56:30 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include "ft_to.h"
 
-void	ft_putnbr_sign_fd(int n, int fd, int print_sign)
+size_t	ft_lllen(long long n)
 {
-	unsigned int	us_n;
+	size_t	int_len;
 
-	if (n < 0)
+	int_len = 0;
+	if (n <= 0)
+		int_len = 1;
+	while (n != 0)
 	{
-		if (print_sign == 1)
-			ft_putchar_fd('-', fd);
-		us_n = (unsigned int)n;
-		us_n = -us_n;
+		n = n / 10;
+		int_len++;
 	}
-	else
-		us_n = (unsigned int)(n);
-	if (us_n >= 10)
-	{
-		ft_putnbr_fd(us_n / 10, fd);
-	}
-	ft_putchar_fd((char)(us_n % 10 + '0'), fd);
+	return (int_len);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lllen_base.c                                    :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 10:52:04 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 10:03:07 by jberredj         ###   ########.fr       */
+/*   Created: 2020/11/30 17:55:32 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/22 14:46:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_to.h"
 
-int	ft_lllen_base(long long n, int base)
+char	*ft_uitoa(unsigned int n)
 {
-	long long	int_len;
+	size_t			str_len;
+	char			*str;
 
-	if (base <= 2)
-		return (-1);
-	int_len = 0;
-	if (n <= 0)
-		int_len = 1;
-	while (n != 0)
+	str_len = ft_uintlen(n);
+	str = (char*)ft_calloc(sizeof(char), (str_len + 1));
+	if (str == NULL)
+		return (NULL);
+	str[str_len] = '\0';
+	while (str_len > 0)
 	{
-		n = n / base;
-		int_len++;
+		str[--str_len] = n % 10 + '0';
+		n = n / 10;
 	}
-	return (int_len);
+	return (str);
 }
