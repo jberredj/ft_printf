@@ -1,13 +1,8 @@
 main.c
-main_*_test.c
+*_test.c
 *.a
 *.out
 *.o
 objs/
 À faire.txt
-pft/
-42TESTERS-PRINTF/
-printf-tester/
 srcs/check_parser/e_f_g_type_illegal.c
-srcs/parser/length_parser.c
-includes/parser_length.h
