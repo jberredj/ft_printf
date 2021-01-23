@@ -6,12 +6,35 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/23 23:33:07 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:36:39 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
 #include "parser.h"
+
+char	*zero_precision(char *str, size_t *len, t_pf *flags)
+{
+	char	*tmp;
+
+	tmp = NULL;
+	if (flags->precision_state == SET)
+	{
+		if (flags->precision == 0 && *len == 1 && str[0] == '0')
+		{
+			tmp = ft_calloc(1, sizeof(char));
+			if (!tmp)
+				return (NULL);
+			tmp[0] = '\0';
+			*len -= 1;
+			free(str);
+			str = tmp;
+		}
+	}
+	else
+		tmp = str;
+	return (tmp);
+}
 
 char	*nbr_precision(char *str, size_t *len, t_pf *flags)
 {
@@ -20,13 +43,8 @@ char	*nbr_precision(char *str, size_t *len, t_pf *flags)
 
 	if (str == NULL)
 		return (NULL);
-	if (flags->precision_state == SET && flags->precision == 0 
-		&& *len == 1 && str[0] == '0')
-		{
-			str[0] = ' ';
-			return (str);
-		}
-	if (flags->precision_state == NOT_SET || flags->precision <= (int)*len)
+	str = zero_precision(str, len, flags);
+	if (flags->precision_state == NOT_SET || flags->precision <= *(int *)len)
 		return (str);
 	precision = flags->precision - *len;
 	tmp = ft_calloc(flags->precision + 1, sizeof(char));
@@ -66,8 +84,7 @@ char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags)
 }
 
 void	zero_flag(int sign, t_pf *flags)
-{
-	
+{	
 	if (flags->flags & ZERO_FLAG)
 	{
 		if (flags->flags & (SPACE_FLAG | PLUS_FLAG))

@@ -6,15 +6,15 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:08:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 10:53:29 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:24:05 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int copy_printed_char(t_pf *flags)
+int	copy_printed_char(t_pf *flags)
 {
-	int *n;
+	int	*n;
 
 	n = va_arg(*(flags->ap), int *);
 	*n = flags->printed_char;

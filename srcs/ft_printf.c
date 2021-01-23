@@ -6,15 +6,15 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 19:16:22 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:10:33 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_selector(t_pf *flags)
+int	print_selector(t_pf *flags)
 {
-	int ret;
+	int	ret;
 
 	ret = 1;
 	/*if (flags->type & C_TYPE)
@@ -34,23 +34,19 @@ int print_selector(t_pf *flags)
 	return (ret);
 }
 
-int process_print(const char *str, t_pf *flags)
+int	process_print(const char *str, t_pf *flags)
 {
-	int end;
-	int error;
+	int	error;
 
-	end = 0;
-	while (1)
+	while (*str != '\0')
 	{
 		error = 1;
-		if (*str == '\0')
-			break;
 		if (*str == '%' && (*str + 1) != '\0')
 		{
 			str = main_parser((char *)str, flags);
 			check_parser(flags);
 			error = print_selector(flags);
-			clear_flags(flags);	
+			clear_flags(flags);
 		}
 		if (error == 1)
 		{
@@ -61,10 +57,10 @@ int process_print(const char *str, t_pf *flags)
 			return (-1);
 	}
 	print_buffer(flags);
-	return(flags->printed_char);
+	return (flags->printed_char);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	t_pf	flags;

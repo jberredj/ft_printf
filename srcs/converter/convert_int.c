@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/23 23:27:19 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:22:59 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	nbr_size(long long *nbr, t_pf *flags)
 {
-	int sign;
-	
+	int	sign;
+
 	sign = 0;
 	if (flags->length != 0)
 	{
@@ -29,22 +29,22 @@ int	nbr_size(long long *nbr, t_pf *flags)
 		else if (flags->length & LL_LENGTH)
 			*nbr = (va_arg(*(flags->ap), long long));
 	}
-	else 
+	else
 		*nbr = (long long)va_arg(*(flags->ap), int);
 	if (*nbr < 0)
 	{
 		sign = 1;
-		*nbr = -*nbr;
+		*nbr = - *nbr;
 	}
 	return (sign);
 }
 
-int convert_int(t_pf *flags)
+int	convert_int(t_pf *flags)
 {
-	char	*str;
+	char		*str;
 	long long	nbr;
-	int		sign;
-	size_t	len;
+	int			sign;
+	size_t		len;
 
 	nbr = 0;
 	sign = nbr_size(&nbr, flags);
@@ -75,18 +75,17 @@ int	unbr_size(unsigned long long *unbr, t_pf *flags)
 		else if (flags->length & LL_LENGTH)
 			*unbr = (va_arg(*(flags->ap), unsigned long long));
 	}
-	else 
+	else
 		*unbr = (t_uintmax)va_arg(*(flags->ap), unsigned int);
-
 	return (0);
 }
 
-int convert_uint(t_pf *flags)
+int	convert_uint(t_pf *flags)
 {
-	char	*str;
-	unsigned long long		unbr;
-	int		sign;
-	size_t	len;
+	char				*str;
+	unsigned long long	unbr;
+	int					sign;
+	size_t				len;
 
 	unbr = 0;
 	sign = unbr_size(&unbr, flags);

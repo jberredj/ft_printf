@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:59:37 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 17:24:12 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:07:08 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int init_flags(t_pf *flags)
+int	init_flags(t_pf *flags)
 {
 	flags->ap = NULL;
 	ft_bzero(flags->buffer, BUFFER_SIZE);
@@ -22,7 +22,7 @@ int init_flags(t_pf *flags)
 	return (0);
 }
 
-int clear_flags(t_pf *flags)
+int	clear_flags(t_pf *flags)
 {
 	flags->precision = 0;
 	flags->precision_state = NOT_SET;

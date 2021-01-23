@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:13:02 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/22 14:12:56 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:27:43 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*process_width(char *str, size_t *len, t_pf *flags)
 		return (str);
 	width = flags->width;
 	tmp = ft_calloc(width + *len + 1, sizeof(char));
-		if (!tmp)
-			return (NULL);
+	if (!tmp)
+		return (NULL);
 	if (flags->flags & MINUS_FLAG)
 	{
 		ft_strlcpy(tmp, str, *len + 1);

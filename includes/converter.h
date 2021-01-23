@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:09:09 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/22 15:21:05 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:06:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CONVERTER_H
 # include <stdlib.h>
 # include "flags_struct.h"
-typedef unsigned long long t_uintmax;
+typedef unsigned long long	t_uintmax;
 int		copy_printed_char(t_pf *flags);
 int		convert_int(t_pf *flags);
 int		convert_uint(t_pf *flags);
