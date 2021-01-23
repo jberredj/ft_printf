@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 19:04:16 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:15:51 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:42:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	precision_parser(char *str, t_pf *flags)
 	if (*str == '.')
 	{
 		str++;
+		flags->precision_state = SET;
 		if (ft_isdigit(*str) == 1)
 		{
-			flags->precision_state = SET;
 			flags->precision = ft_atoi(str);
 			return (ft_intlen(flags->precision) + 1);
 		}
