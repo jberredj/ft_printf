@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:36:39 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:40:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*zero_precision(char *str, size_t *len, t_pf *flags)
 			free(str);
 			str = tmp;
 		}
+		else
+			tmp = str;
 	}
 	else
 		tmp = str;
