@@ -66,8 +66,11 @@ void	zero_flag(int sign, t_pf *flags)
 	{
 		if (flags->flags & (SPACE_FLAG | PLUS_FLAG))
 			sign = 1;
-		flags->precision = flags->width - sign;
-		flags->width_state = NOT_SET;
-		flags->precision_state = SET;
+		if (flags->precision_state & NOT_SET)
+		{
+			flags->precision = flags->width - sign;
+			flags->width_state = NOT_SET;
+			flags->precision_state = SET;
+		}
 	}
 }

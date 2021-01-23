@@ -17,10 +17,15 @@ size_t	ft_ulllen(unsigned long long n)
 	size_t	uint_len;
 
 	uint_len = 0;
-	while (n != 0)
+	if (n != 0)
 	{
-		n = n / 10;
-		uint_len++;
+		while (n != 0)
+		{
+			n = n / 10;
+			uint_len++;
+		}
 	}
+	else
+		uint_len = 1;
 	return (uint_len);
 }
