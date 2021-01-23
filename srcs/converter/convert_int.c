@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:22:59 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 00:54:38 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 
 int	nbr_size(long long *nbr, t_pf *flags)
 {
-	int	sign;
+	int		sign;
+	va_list	*ap;
 
 	sign = 0;
+	ap = flags->ap;
 	if (flags->length != 0)
 	{
 		if (flags->length & H_LENGTH)
-			*nbr = (long long)((short)(va_arg(*(flags->ap), int)));
+			*nbr = (long long)((short)(va_arg(*ap, int)));
 		else if (flags->length & HH_LENGTH)
-			*nbr = (long long)((char)(va_arg(*(flags->ap), int)));
+			*nbr = (long long)((char)(va_arg(*ap, int)));
 		else if (flags->length & L_LENGTH)
-			*nbr = (long long)(va_arg(*(flags->ap), long));
+			*nbr = (long long)(va_arg(*ap, long));
 		else if (flags->length & LL_LENGTH)
-			*nbr = (va_arg(*(flags->ap), long long));
+			*nbr = (va_arg(*ap, long long));
 	}
 	else
-		*nbr = (long long)va_arg(*(flags->ap), int);
+		*nbr = (long long)va_arg(*ap, int);
 	if (*nbr < 0)
 	{
 		sign = 1;
@@ -64,19 +66,22 @@ int	convert_int(t_pf *flags)
 
 int	unbr_size(unsigned long long *unbr, t_pf *flags)
 {
+	va_list	*ap;
+
+	ap = flags->ap;
 	if (flags->length != 0)
 	{
 		if (flags->length & H_LENGTH)
-			*unbr = (t_uintmax)((short)(va_arg(*(flags->ap), unsigned int)));
+			*unbr = (t_uintmax)((unsigned short)(va_arg(*ap, unsigned int)));
 		else if (flags->length & HH_LENGTH)
-			*unbr = (t_uintmax)((char)(va_arg(*(flags->ap), unsigned int)));
+			*unbr = (t_uintmax)((unsigned char)(va_arg(*ap, unsigned int)));
 		else if (flags->length & L_LENGTH)
-			*unbr = (t_uintmax)(va_arg(*(flags->ap), unsigned long));
+			*unbr = (t_uintmax)(va_arg(*ap, unsigned long));
 		else if (flags->length & LL_LENGTH)
-			*unbr = (va_arg(*(flags->ap), unsigned long long));
+			*unbr = (va_arg(*ap, unsigned long long));
 	}
 	else
-		*unbr = (t_uintmax)va_arg(*(flags->ap), unsigned int);
+		*unbr = (t_uintmax)va_arg(*ap, unsigned int);
 	return (0);
 }
 
