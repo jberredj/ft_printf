@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:55:32 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/22 14:50:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 01:09:39 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_lltoa(long long n)
 {
 	unsigned long long	us_n;
-	size_t				str_len;
+	int					str_len;
 	char				*str;
 	short				sign;
 
-	str_len = ft_intlen(n);
+	str_len = (int)ft_lllen(n);
 	sign = 1;
 	if (n < 0)
 		sign = -1;
