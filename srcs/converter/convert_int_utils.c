@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:40:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/24 01:16:48 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags)
 			*tmp = '-';
 		else if (flags->flags & PLUS_FLAG)
 			*tmp = '+';
-		else if (flags->flags & PLUS_FLAG)
+		else if (flags->flags & SPACE_FLAG)
 			*tmp = ' ';
 		ft_strlcpy(&tmp[1], str, *len + 1);
 		*len += 1;
