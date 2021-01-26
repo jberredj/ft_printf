@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:41:49 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:50:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ int	convert_hex(t_pf *flags, char *str)
 	}
 	len = ft_strlen(str);
 	zero_flag(0, flags);
-	if (flags->flags & ZERO_FLAG && flags->flags & HASH_FLAG)
+	if (flags->flags & ZERO_FLAG && flags->flags & HASH_FLAG && unbr != 0)
 		flags->precision -= 2;
 	str = nbr_precision(str, &len, flags);
-	str = hash_flag(str, &len, flags);
+	if (unbr != 0)
+		str = hash_flag(str, &len, flags);
 	flags->width -= len;
 	str = process_width(str, &len, ' ', flags);
 	if (str == NULL)
