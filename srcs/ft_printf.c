@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 15:33:37 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:59:57 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int convert_adress(t_pf *flags)
 	p = (void *)va_arg(*(flags->ap), unsigned long long);
 	str = ft_ulltoa_base((unsigned long long)p, "0123456789abcdef");
 	flags->flags |= HASH_FLAG;
-	
-	return (convert_hex(flags, str));
+	flags->flags |= LL_LENGTH;
+	return (convert_hex(flags, 1));
 }
 
 int	print_selector(t_pf *flags)
@@ -37,7 +37,7 @@ int	print_selector(t_pf *flags)
 	if (flags->type & U_TYPE)
 		return (convert_uint(flags));
 	if (flags->type & X_TYPE)
-		return (convert_hex(flags, NULL));
+		return (convert_hex(flags, 0));
 	if (flags->type & N_TYPE && BONUS == 1)
 		return (copy_printed_char(flags));
 	return (1);

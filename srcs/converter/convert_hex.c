@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:50:04 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 18:01:36 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*hash_flag(char *str, size_t *len, t_pf *flags)
 	return (tmp);
 }
 
-int	convert_hex(t_pf *flags, char *str)
+int	convert_hex(t_pf *flags, int point)
 {
 	size_t				len;
 	char				*base;
@@ -54,17 +54,15 @@ int	convert_hex(t_pf *flags, char *str)
 
 	unbr = 0;
 	base = base_selector(flags);
-	if (str == NULL)
-	{
-		unbr_size(&unbr, flags);
-		str = ft_ulltoa_base(unbr, base);
-	}
+	unbr_size(&unbr, flags);
+	str = ft_ulltoa_base(unbr, base);
 	len = ft_strlen(str);
 	zero_flag(0, flags);
-	if (flags->flags & ZERO_FLAG && flags->flags & HASH_FLAG && unbr != 0)
+	if (point == 1 ||
+		(flags->flags & ZERO_FLAG && flags->flags & HASH_FLAG && unbr != 0))
 		flags->precision -= 2;
 	str = nbr_precision(str, &len, flags);
-	if (unbr != 0)
+	if (point == 1 || unbr != 0)
 		str = hash_flag(str, &len, flags);
 	flags->width -= len;
 	str = process_width(str, &len, ' ', flags);
