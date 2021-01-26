@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 18:01:36 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 18:03:46 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	convert_hex(t_pf *flags, int point)
 {
 	size_t				len;
 	char				*base;
+	char				*str;
 	unsigned long long	unbr;
 
 	unbr = 0;
