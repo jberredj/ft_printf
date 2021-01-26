@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:16:19 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 10:31:09 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:59:12 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,31 @@
 #include "buffer.h"
 #include "ft_printf.h"
 
+static char	*get_string(size_t *len, t_pf *flags)
+{
+	char	*str;
+
+	str = (char *)va_arg(*(flags->ap), char *);
+	if (str != NULL)
+	{
+		*len = ft_strlen(str);
+		str = ft_substr(str, 0, *len);
+	}
+	else 
+	{
+		*len = 6;
+		str = ft_substr("(null)", 0, *len);
+	}
+	return (str);
+}
+
 int convert_str(t_pf *flags)
 {
 	char	*str;
 	size_t	len;
 
-	str = (char *)va_arg(*(flags->ap), char *);
-	len = ft_strlen(str);
-	str = ft_substr(str, 0, len);
+	len = 0;
+	str = get_string(&len, flags);
 	if (str == NULL)
 		return (-1);
 	if (flags->precision_state == SET && flags->precision < (int)len)
