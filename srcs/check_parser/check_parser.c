@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:12:30 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 13:58:40 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ int	check_parser(t_pf *flags)
 	if (flags->precision_state == VAR_VALUE)
 	{
 		flags->precision = va_arg(*(flags->ap), int);
-		flags->precision_state = SET;
+		if (flags->precision < 0)
+			flags->precision_state = NOT_SET;
+		else
+			flags->precision_state = SET;
 	}
 	if (BONUS == 0)
 		flags->length = 0;
