@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 01:16:48 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:10:52 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,25 @@ void	zero_flag(int sign, t_pf *flags)
 			flags->precision_state = SET;
 		}
 	}
+}
+
+int	unbr_size(unsigned long long *unbr, t_pf *flags)
+{
+	va_list	*ap;
+
+	ap = flags->ap;
+	if (flags->length != 0)
+	{
+		if (flags->length & H_LENGTH)
+			*unbr = (t_uintmax)((unsigned short)(va_arg(*ap, unsigned int)));
+		else if (flags->length & HH_LENGTH)
+			*unbr = (t_uintmax)((unsigned char)(va_arg(*ap, unsigned int)));
+		else if (flags->length & L_LENGTH)
+			*unbr = (t_uintmax)(va_arg(*ap, unsigned long));
+		else if (flags->length & LL_LENGTH)
+			*unbr = (va_arg(*ap, unsigned long long));
+	}
+	else
+		*unbr = (t_uintmax)va_arg(*ap, unsigned int);
+	return (0);
 }

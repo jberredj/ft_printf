@@ -6,12 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:18:33 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/21 10:42:46 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 10:09:03 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "parser_type.h"
+#include "ft_printf.h"
 
 int	type_parser(char *str, t_pf *flags)
 {

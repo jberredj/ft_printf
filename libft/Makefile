@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/03 13:41:15 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/24 01:10:45 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/26 11:08:38 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ FT_STRING		=	ft_cw_sep.c ft_split.c ft_strchr.c \
 
 FT_TO			=	ft_atoi.c ft_itoa.c ft_intlen.c ft_intlen_base.c ft_lllen_base.c ft_uitoa.c \
 					ft_uintlen.c ft_lltoa.c ft_ulltoa.c ft_ulllen.c ft_lllen.c ft_tolower.c \
-					ft_toupper.c
+					ft_toupper.c ft_ulllen_base.c ft_ulltoa_base.c
+
+FT_UTILS		=	check_base.c
 
 GET_NEXT_LINE	=	get_next_line.c get_next_line_utils.c
 
@@ -56,7 +58,7 @@ ft_lst: ft_string objs
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_lst/, $(FT_LST)) $(CFLAGS)
 	mv *.o objs/
 
-ft_io: ft_string objs
+ft_io: ft_utils ft_string objs
 	echo "Compiling ft_io.h functions"
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_io/, $(FT_IO)) $(CFLAGS)
 	mv *.o objs/
@@ -66,10 +68,15 @@ ft_string: objs
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_string/, $(FT_STRING)) $(CFLAGS)
 	mv *.o objs/
 
-ft_to: ft_ctype ft_string objs
+ft_to: ft_utils ft_ctype ft_string objs
 	echo "Compiling ft_to.h functions"
 	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_to/, $(FT_TO)) $(CFLAGS)
 	mv *.o objs/
+
+ft_utils: objs
+	echo "Compiling ft_utils.h functions"
+	$(CC) -I $(INCLUDES_PATH) -c $(addprefix srcs/ft_utils/, $(FT_UTILS)) $(CFLAGS)
+	mv *.o objs
 
 get_next_line: ft_string
 	echo "Compiling get_next_line"

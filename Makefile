@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/22 16:08:33 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/26 11:06:44 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ PARSER			=	main_parser.c flag_parser.c width_parser.c precision_parser.c type_pa
 CHECKER			=	check_parser.c c_type_illegal.c s_type_illegal.c p_type_illegal.c d_i_type_illegal.c \
 					u_type_illegal.c n_type_illegal.c x_type_illegal.c flag_illegal.c
 
-CONVERTER		=	convert_int.c convert_int_utils.c process_width.c copy_printed_char.c
+CONVERTER		=	convert_int.c convert_int_utils.c process_width.c copy_printed_char.c convert_char.c convert_str.c \
+					convert_hex.c
 
 PRINTER			=	ft_printf.c clear_flags.c buffer.c
 
@@ -30,13 +31,12 @@ MODULE			=	parser checker converter printer
 
 LIBS			=	libft
 
-BONUS			=	-D BONUS=0
+BONUS			=	-D BONUS=1
 
 all: $(NAME)
 
 $(NAME): $(LIBS) $(MODULE) lib
 
-bonus: BONUS = -D BONUS=1
 bonus: all
 
 parser: objs libft.a

@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:09:09 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:06:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:07:38 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,13 @@ typedef unsigned long long	t_uintmax;
 int		copy_printed_char(t_pf *flags);
 int		convert_int(t_pf *flags);
 int		convert_uint(t_pf *flags);
+int		convert_char(t_pf *flags);
+int 	convert_str(t_pf *flags);
+int 	convert_hex(t_pf *flags, char *str);
 void	zero_flag(int sign, t_pf *flags);
 char	*nbr_precision(char *str, size_t *len, t_pf *flags);
 char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags);
 char	*process_width(char *str, size_t *len, t_pf *flags);
+int		unbr_size(unsigned long long *unbr, t_pf *flags);
 
 #endif

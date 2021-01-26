@@ -6,32 +6,40 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:10:33 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:39:12 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int convert_adress(t_pf *flags)
+{
+	char	*str;
+	void	*p;
+
+	p = va_arg(*(flags->ap), void *);
+	str = ft_ulltoa_base((unsigned long long)p, "0123456789abcdef");
+	flags->flags |= HASH_FLAG;
+	return (convert_hex(flags, str));
+}
+
 int	print_selector(t_pf *flags)
 {
-	int	ret;
-
-	ret = 1;
-	/*if (flags->type & C_TYPE)
-		print_char(flags);
+	if (flags->type & C_TYPE)
+		return (convert_char(flags));
 	if (flags->type & S_TYPE)
-		print_string(flags);
+		return (convert_str(flags));
 	if (flags->type & P_TYPE)
-		print_adress(flags);*/
+		return (convert_adress(flags));
 	if (flags->type & (D_TYPE | I_TYPE))
-		ret = convert_int(flags);
+		return (convert_int(flags));
 	if (flags->type & U_TYPE)
-		ret = convert_uint(flags);
-	/*if (flags->type & X_TYPE)
-		print_hex(flags);*/
+		return (convert_uint(flags));
+	if (flags->type & X_TYPE)
+		return (convert_hex(flags, NULL));
 	if (flags->type & N_TYPE && BONUS == 1)
-		copy_printed_char(flags);
-	return (ret);
+		return (copy_printed_char(flags));
+	return (1);
 }
 
 int	process_print(const char *str, t_pf *flags)
