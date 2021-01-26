@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 09:44:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 10:13:47 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:35:02 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	convert_char(t_pf *flags)
 		str[0] = (char)va_arg(*(flags->ap), int);
 	len = 1;
 	flags->width -= len;
+	zero_flag(0, flags);
 	str = process_width(str, &len, flags);
 	if (str == NULL)
 		return (-1);
