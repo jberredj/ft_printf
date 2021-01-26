@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:13:02 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:13:39 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:16:50 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_width(t_pf *flags)
 {
 	if (flags->width_state == NOT_SET)
 		return (0);
-	if (flags->flags & MINUS_FLAG)
+	if (flags->flags & MINUS_FLAG && flags->width < 0)
 		return (- flags->width);
 	return(flags->width);
 }
