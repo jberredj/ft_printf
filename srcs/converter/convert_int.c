@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 11:14:13 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:40:43 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	convert_int(t_pf *flags)
 	str = nbr_precision(str, &len, flags);
 	str = nbr_sign(str, sign, &len, flags);
 	flags->width -= len;
-	str = process_width(str, &len, flags);
+	str = process_width(str, &len,' ', flags);
 	if (str == NULL)
 		return (-1);
 	add_to_buffer(str, len, flags);
@@ -77,7 +77,7 @@ int	convert_uint(t_pf *flags)
 	zero_flag(0, flags);
 	str = nbr_precision(str, &len, flags);
 	flags->width -= len;
-	str = process_width(str, &len, flags);
+	str = process_width(str, &len, ' ', flags);
 	if (str == NULL)
 		return (-1);
 	add_to_buffer(str, len, flags);

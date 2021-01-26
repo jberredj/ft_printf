@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:13:02 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:27:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:38:34 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*process_width(char *str, size_t *len, t_pf *flags)
+char	*process_width(char *str, size_t *len, char c,t_pf *flags)
 {
 	char	*tmp;
 	int		width;
@@ -28,11 +28,11 @@ char	*process_width(char *str, size_t *len, t_pf *flags)
 	if (flags->flags & MINUS_FLAG)
 	{
 		ft_strlcpy(tmp, str, *len + 1);
-		ft_memset(&tmp[*len], ' ', width);
+		ft_memset(&tmp[*len], c, width);
 	}
 	else
 	{
-		ft_memset(tmp, ' ', width);
+		ft_memset(tmp, c, width);
 		ft_strlcpy(&tmp[width], str, *len + 1);
 	}
 	free(str);
