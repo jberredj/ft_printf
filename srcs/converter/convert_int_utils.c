@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 11:10:52 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/26 16:33:25 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	zero_flag(int sign, t_pf *flags)
 {	
 	if (flags->flags & ZERO_FLAG)
 	{
+		if (flags->flags & MINUS_FLAG && flags->precision_state == NOT_SET)
+			return ;
 		if (flags->flags & (SPACE_FLAG | PLUS_FLAG))
 			sign = 1;
 		if (flags->precision_state & NOT_SET)
