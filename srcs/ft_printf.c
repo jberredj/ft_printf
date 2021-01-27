@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 10:24:44 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:14:57 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int convert_adress(t_pf *flags)
+int	convert_adress(t_pf *flags)
 {
 	flags->flags |= HASH_FLAG;
 	flags->length |= LL_LENGTH;
@@ -56,7 +56,7 @@ int	process_print(const char *str, t_pf *flags)
 		{
 			add_to_buffer((char*)str, 1, flags);
 			str++;
-		}	
+		}
 		if (error == -1)
 			return (-1);
 	}

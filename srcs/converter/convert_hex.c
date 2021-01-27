@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 12:27:20 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:11:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_printf.h"
 #include "parser_type.h"
 
-static char *base_selector(t_pf *flags)
+static char	*base_selector(t_pf *flags)
 {
 	if (flags->type & UPPER_TYPE)
 		return ("0123456789ABCDEF");
@@ -23,7 +23,7 @@ static char *base_selector(t_pf *flags)
 		return ("0123456789abcdef");
 }
 
-char	*hash_flag(char *str, size_t *len, t_pf *flags)
+char		*hash_flag(char *str, size_t *len, t_pf *flags)
 {
 	char	*tmp;
 
@@ -46,7 +46,7 @@ char	*hash_flag(char *str, size_t *len, t_pf *flags)
 	return (tmp);
 }
 
-int	convert_hex(t_pf *flags, int point)
+int			convert_hex(t_pf *flags, int point)
 {
 	size_t				len;
 	char				*base;
@@ -58,9 +58,6 @@ int	convert_hex(t_pf *flags, int point)
 	unbr_size(&unbr, flags);
 	str = ft_ulltoa_base(unbr, base);
 	len = ft_strlen(str);
-	//if (point == 1 || (
-	//	flags->flags & ZERO_FLAG && flags->flags & HASH_FLAG && unbr != 0))
-	//		flags->width -= 2;
 	if (zero_flag(0, flags) && unbr != 0)
 		flags->precision -= 2;
 	str = nbr_precision(str, &len, flags);

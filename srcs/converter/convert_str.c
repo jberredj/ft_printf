@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:16:19 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:41:25 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:12:15 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*get_string(size_t *len, t_pf *flags)
 		*len = ft_strlen(str);
 		str = ft_substr(str, 0, *len);
 	}
-	else 
+	else
 	{
 		*len = 6;
 		str = ft_substr("(null)", 0, *len);
@@ -32,7 +32,7 @@ static char	*get_string(size_t *len, t_pf *flags)
 	return (str);
 }
 
-int convert_str(t_pf *flags)
+int			convert_str(t_pf *flags)
 {
 	char	*str;
 	size_t	len;

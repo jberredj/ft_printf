@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 10:56:03 by jberredj          #+#    #+#             */
-/*   Updated: 2020/12/24 15:13:58 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:11:43 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	ft_strlen_sep(const char *str, char sep)
 	return (i);
 }
 
-static void	*ft_free_split(char **tab, size_t index)
+static void		*ft_free_split(char **tab, size_t index)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ static void	*ft_free_split(char **tab, size_t index)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	size_t	tab_size;
 	size_t	i;

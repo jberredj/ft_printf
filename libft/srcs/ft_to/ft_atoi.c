@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:40:58 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/22 14:29:26 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:12:22 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	long_max(unsigned long long *res, int *sign)
 	}
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	unsigned long long	res;
 	int					digit;

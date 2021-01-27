@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/22 15:19:57 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:05:57 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # ifndef BONUS
 #  define BONUS 0
 # endif
-int		ft_printf(const char *str, ...);
-int		clear_flags(t_pf *flags);
-int		init_flags(t_pf *flags);
 
+int		ft_printf(const char *str, ...);
+void	clear_flags(t_pf *flags);
+void	init_flags(t_pf *flags);
 #endif

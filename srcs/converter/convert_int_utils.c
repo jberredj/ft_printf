@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 12:15:27 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:14:13 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*nbr_precision(char *str, size_t *len, t_pf *flags)
 
 char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags)
 {
-	char	*tmp;	
+	char	*tmp;
 
 	if (str == NULL)
 		return (NULL);
@@ -85,8 +85,8 @@ char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags)
 	return (tmp);
 }
 
-int	zero_flag(int sign, t_pf *flags)
-{	
+int		zero_flag(int sign, t_pf *flags)
+{
 	if (flags->flags & ZERO_FLAG)
 	{
 		if (flags->flags & MINUS_FLAG && flags->precision_state == NOT_SET)
@@ -98,14 +98,14 @@ int	zero_flag(int sign, t_pf *flags)
 			flags->precision = flags->width - sign;
 			flags->width_state = NOT_SET;
 			flags->precision_state = SET;
-			if(flags->flags & HASH_FLAG)
+			if (flags->flags & HASH_FLAG)
 				return (1);
 		}
 	}
 	return (0);
 }
 
-int	unbr_size(unsigned long long *unbr, t_pf *flags)
+void	unbr_size(unsigned long long *unbr, t_pf *flags)
 {
 	va_list	*ap;
 
@@ -123,5 +123,4 @@ int	unbr_size(unsigned long long *unbr, t_pf *flags)
 	}
 	else
 		*unbr = (t_uintmax)va_arg(*ap, unsigned int);
-	return (0);
 }

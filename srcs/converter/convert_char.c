@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 09:44:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:41:04 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:31:55 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	convert_char(t_pf *flags)
 	len = 1;
 	flags->width -= len;
 	if (flags->flags & ZERO_FLAG)
-		str = process_width(str, &len, '0' , flags);
+		str = process_width(str, &len, '0', flags);
 	else
-		str = process_width(str, &len, ' ' , flags);
+		str = process_width(str, &len, ' ', flags);
 	if (str == NULL)
 		return (-1);
 	add_to_buffer(str, len, flags);
 	free(str);
-	return (0);	
+	return (0);
 }

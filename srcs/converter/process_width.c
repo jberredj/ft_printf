@@ -6,13 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:13:02 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:38:34 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:32:31 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*process_width(char *str, size_t *len, char c,t_pf *flags)
+char	*process_width(char *str, size_t *len, char c, t_pf *flags)
 {
 	char	*tmp;
 	int		width;

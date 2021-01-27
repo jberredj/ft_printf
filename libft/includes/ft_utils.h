@@ -6,12 +6,12 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:40:48 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 10:41:33 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:09:57 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_UTILS_H
 # define FT_UTILS_H
-int	check_base(char *str);
 
+int	check_base(char *str);
 #endif
