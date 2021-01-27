@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 16:33:25 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 12:06:29 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ char	*nbr_sign(char *str, int sign, size_t *len, t_pf *flags)
 	return (tmp);
 }
 
-void	zero_flag(int sign, t_pf *flags)
+int	zero_flag(int sign, t_pf *flags)
 {	
 	if (flags->flags & ZERO_FLAG)
 	{
 		if (flags->flags & MINUS_FLAG && flags->precision_state == NOT_SET)
-			return ;
+			return (0);
 		if (flags->flags & (SPACE_FLAG | PLUS_FLAG))
 			sign = 1;
 		if (flags->precision_state & NOT_SET)
@@ -98,8 +98,10 @@ void	zero_flag(int sign, t_pf *flags)
 			flags->precision = flags->width - sign;
 			flags->width_state = NOT_SET;
 			flags->precision_state = SET;
+			return (1);
 		}
 	}
+	return (0);
 }
 
 int	unbr_size(unsigned long long *unbr, t_pf *flags)
