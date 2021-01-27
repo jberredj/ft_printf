@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:08:52 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:18:14 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	check_illegal_combination(t_pf *flags)
 void		check_parser(t_pf *flags)
 {
 	if (flags->type == 0)
-		return (-1);
+		return ;
 	check_illegal_combination(flags);
 	if (flags->type & PERCENT_TYPE)
 		flags->type |= C_TYPE;

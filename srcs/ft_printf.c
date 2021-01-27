@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:54:21 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:14:57 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:17:45 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int	print_selector(t_pf *flags)
 	if (flags->type & X_TYPE)
 		return (convert_hex(flags, 0));
 	if (flags->type & N_TYPE && BONUS == 1)
-		return (copy_printed_char(flags));
+	{
+		copy_printed_char(flags);
+		return (0);
+	}
 	return (1);
 }
 
