@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 12:06:29 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 12:15:27 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int	zero_flag(int sign, t_pf *flags)
 			flags->precision = flags->width - sign;
 			flags->width_state = NOT_SET;
 			flags->precision_state = SET;
-			return (1);
+			if(flags->flags & HASH_FLAG)
+				return (1);
 		}
 	}
 	return (0);
