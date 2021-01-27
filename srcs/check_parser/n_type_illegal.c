@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:30:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/24 00:14:46 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:01:32 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ int	n_type_illegal(t_pf *flags)
 	flags->flags &= ~ MINUS_FLAG;
 	flags->flags &= ~ PLUS_FLAG;
 	flags->flags &= ~ SPACE_FLAG;
+	if (flags->precision_state != NOT_SET)
+		(void)va_arg(*(flags->ap), int);
 	flags->precision = 0;
 	flags->precision_state = NOT_SET;
+	if (flags->width_state != NOT_SET)
+		(void)va_arg(*(flags->ap), int);
 	flags->width = 0;
 	flags->width_state = NOT_SET;
 	return (0);
