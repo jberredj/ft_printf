@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 16:07:04 by jberredj         ###   ########.fr       */
+/*   Created: 2020/11/23 15:16:03 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/27 15:57:00 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "flags_struct.h"
-# include "buffer.h"
-# include "parser.h"
-# include "checker_parser.h"
-# include "converter.h"
-# include "minilibft.h"
-# ifndef BONUS
-#  define BONUS 0
-# endif
+#include "minilibft.h"
 
-int		ft_printf(const char *str, ...);
-void	clear_flags(t_pf *flags);
-void	init_flags(t_pf *flags);
-#endif
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	len;
+	size_t	i;
+
+	if (dst == NULL || src == NULL)
+		return (0);
+	len = ft_strlen(src);
+	i = 0;
+	if (size == 0)
+		return (len);
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (len);
+}

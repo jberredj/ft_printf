@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/26 11:06:44 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/27 16:18:55 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,43 +27,44 @@ CONVERTER		=	convert_int.c convert_int_utils.c process_width.c copy_printed_char
 
 PRINTER			=	ft_printf.c clear_flags.c buffer.c
 
-MODULE			=	parser checker converter printer
+MINILIBFT		=	check_base.c ft_atoi.c ft_bzero.c ft_calloc.c ft_intlen.c ft_isdigit.c \
+					ft_isspace.c ft_lllen.c ft_lltoa.c ft_memset.c ft_strlcpy.c ft_strlen.c \
+					ft_substr.c ft_ulllen_base.c ft_ulllen.c ft_ulltoa_base.c ft_ulltoa.c
 
-LIBS			=	libft
+MODULE			=	parser checker converter printer
 
 BONUS			=	-D BONUS=1
 
 all: $(NAME)
 
-$(NAME): $(LIBS) $(MODULE) lib
+$(NAME): minilibft $(MODULE) lib
 
 bonus: all
 
-parser: objs libft.a
+parser: objs
 	echo "Compiling Parser functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-checker: objs libft.a
+checker: objs
 	echo "Compiling Checker functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-converter: objs libft.a
+converter: objs
 	echo "Compiling Converter functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/converter/, $(CONVERTER)) $(CFLAGS) $(BONUS)
 	mv *.o objs/
 
-printer: objs libft.a
+printer: objs
 	echo "Compiling Printer functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS) -D BUFFER_SIZE=$(BUFFER_SIZE)
 	mv *.o objs/
 
-libft.a: 
-	echo "Compiling libft"
-	make -C libft ft_string ft_to ft_ctype lib
-	cp libft/libft.a libft.a
-	cp libft.a $(NAME)
+minilibft: objs
+	echo "Compiling minilibft"
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/minilibft/, $(MINILIBFT)) $(CFLAGS)
+	mv *.o objs/
 
 lib:
 	echo "Creating $(NAME)"
@@ -78,16 +79,13 @@ objs:
 
 clean:
 	echo "Cleaning objects in objs and delete objs/"
-	rm -rf libft.a
 	rm -rf *.o
 	rm -rf objs
-	make -C libft clean
 
 fclean:
 	echo "Deleting $(NAME)"
 	rm -rf $(NAME)
 	make clean
-	make -C libft fclean
 
 re:
 	make fclean

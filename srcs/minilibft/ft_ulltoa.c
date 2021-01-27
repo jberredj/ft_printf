@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_ulltoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/26 14:32:20 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 16:07:04 by jberredj         ###   ########.fr       */
+/*   Created: 2020/11/30 17:55:32 by jberredj          #+#    #+#             */
+/*   Updated: 2021/01/27 15:57:34 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "flags_struct.h"
-# include "buffer.h"
-# include "parser.h"
-# include "checker_parser.h"
-# include "converter.h"
-# include "minilibft.h"
-# ifndef BONUS
-#  define BONUS 0
-# endif
+#include "minilibft.h"
 
-int		ft_printf(const char *str, ...);
-void	clear_flags(t_pf *flags);
-void	init_flags(t_pf *flags);
-#endif
+char	*ft_ulltoa(unsigned long long n)
+{
+	size_t			str_len;
+	char			*str;
+
+	str_len = ft_ulllen(n);
+	str = (char*)ft_calloc(sizeof(char), (str_len + 1));
+	if (str == NULL)
+		return (NULL);
+	str[str_len] = '\0';
+	while (str_len > 0)
+	{
+		str[--str_len] = n % 10 + '0';
+		n = n / 10;
+	}
+	return (str);
+}
