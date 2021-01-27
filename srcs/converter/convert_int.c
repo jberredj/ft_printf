@@ -6,11 +6,12 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:11:31 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:43:41 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "converter.h"
+#include "parser.h"
 #include "buffer.h"
 
 int	nbr_size(long long *nbr, t_pf *flags)

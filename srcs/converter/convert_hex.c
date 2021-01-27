@@ -6,14 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:11:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:39:04 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
 #include "buffer.h"
-#include "ft_printf.h"
-#include "parser_type.h"
+#include "minilibft.h"
+#include "parser.h"
 
 static char	*base_selector(t_pf *flags)
 {

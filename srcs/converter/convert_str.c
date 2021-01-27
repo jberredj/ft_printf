@@ -6,13 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:16:19 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 15:27:57 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:40:33 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
 #include "buffer.h"
-#include "ft_printf.h"
+#include "parser.h"
+#include "minilibft.h"
 
 static char	*get_string(size_t *len, t_pf *flags)
 {

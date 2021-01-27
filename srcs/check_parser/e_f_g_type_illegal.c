@@ -6,11 +6,10 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:27:11 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:10:31 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:33:33 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "checker_parser.h"
 
 void	e_f_g_type_illegal(t_pf *flags)

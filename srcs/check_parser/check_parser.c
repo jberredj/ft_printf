@@ -6,11 +6,10 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:53:12 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 15:18:14 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:33:20 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "checker_parser.h"
 
 static void	check_illegal_combination(t_pf *flags)

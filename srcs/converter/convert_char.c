@@ -6,13 +6,14 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 09:44:06 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 13:31:55 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:36:31 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
+#include "parser_flag.h"
+#include "parser_type.h"
 #include "buffer.h"
-#include "ft_printf.h"
 
 int	convert_char(t_pf *flags)
 {

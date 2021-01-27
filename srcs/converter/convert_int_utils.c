@@ -6,12 +6,13 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 14:14:13 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:38:23 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "converter.h"
 #include "parser.h"
+#include "minilibft.h"
 
 char	*zero_precision(char *str, size_t *len, t_pf *flags)
 {
