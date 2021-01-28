@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/28 10:42:38 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:54:58 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "parser.h"
 #include "minilibft.h"
 
-char	*zero_precision(char *str, size_t *len, t_pf *flags)
+char	*zero_precision(char *str, size_t *len, int zero, t_pf *flags)
 {
 	char	*tmp;
 
 	tmp = NULL;
-	if (flags->precision_state == SET)
+	if (flags->precision_state == SET && zero == 0)
 	{
 		if (flags->precision == 0 && *len == 1 && str[0] == '0')
 		{
@@ -46,8 +46,7 @@ char	*nbr_precision(char *str, size_t *len, int zero, t_pf *flags)
 
 	if (str == NULL)
 		return (NULL);
-	if (zero == 1)
-		str = zero_precision(str, len, flags);
+	str = zero_precision(str, len, zero, flags);
 	if (flags->precision_state == NOT_SET || flags->precision <= *(int *)len)
 		return (str);
 	precision = flags->precision - *len;
@@ -102,9 +101,8 @@ int		zero_flag(int sign, t_pf *flags)
 			flags->precision_state = SET;
 			if (flags->flags & HASH_FLAG)
 				return (1);
-		}
-		else
 			return (1);
+		}
 	}
 	return (0);
 }
