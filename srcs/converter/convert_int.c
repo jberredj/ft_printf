@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/28 10:10:54 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 11:42:46 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	convert_int(t_pf *flags)
 
 	nbr = 0;
 	sign = nbr_size(&nbr, flags);
-	str = ft_lltoa(nbr);
+	str = ft_ulltoa((unsigned long long)nbr);
 	len = ft_strlen(str);
 	str = nbr_precision(str, &len, zero_flag(sign, flags), flags);
 	str = nbr_sign(str, sign, &len, flags);
