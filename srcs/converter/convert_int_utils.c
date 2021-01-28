@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/28 10:09:09 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:34:51 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		zero_flag(int sign, t_pf *flags)
 			if (flags->flags & HASH_FLAG)
 				return (1);
 		}
+		return (1);
 	}
 	return (0);
 }
