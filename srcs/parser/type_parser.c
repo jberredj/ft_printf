@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:18:33 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/26 10:09:03 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 13:10:11 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	type_parser(char *str, t_pf *flags)
 		flags->type |= X_TYPE | UPPER_TYPE;
 	if (*str == '%')
 		flags->type |= PERCENT_TYPE;
-	if (*str == 'n' && BONUS == 1)
+	if (*str == 'n')
 		flags->type |= N_TYPE;
 	if (flags->type != 0)
 		return (1);
