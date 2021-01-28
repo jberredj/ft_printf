@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/28 12:48:14 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/28 13:11:44 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ MINILIBFT		=	check_base.c ft_atoi.c ft_bzero.c ft_calloc.c ft_intlen.c ft_isdigi
 
 MODULE			=	parser checker converter printer
 
-BONUS			=	-D BONUS=1
-
 all: $(NAME)
 
 bonus: all
@@ -43,22 +41,22 @@ $(NAME): minilibft $(MODULE) lib
 
 parser: objs
 	echo "Compiling Parser functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS)
 	mv *.o objs/
 
 checker: objs
 	echo "Compiling Checker functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS)
 	mv *.o objs/
 
 converter: objs
 	echo "Compiling Converter functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/converter/, $(CONVERTER)) $(CFLAGS) $(BONUS)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/converter/, $(CONVERTER)) $(CFLAGS)
 	mv *.o objs/
 
 printer: objs
 	echo "Compiling Printer functions"
-	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) $(BONUS) -D BUFFER_SIZE=$(BUFFER_SIZE)
+	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) -D BUFFER_SIZE=$(BUFFER_SIZE)
 	mv *.o objs/
 
 minilibft: objs
