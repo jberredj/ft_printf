@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:10:26 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 16:38:23 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:09:09 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ char	*zero_precision(char *str, size_t *len, t_pf *flags)
 	return (tmp);
 }
 
-char	*nbr_precision(char *str, size_t *len, t_pf *flags)
+char	*nbr_precision(char *str, size_t *len, int zero, t_pf *flags)
 {
 	char	*tmp;
 	int		precision;
 
 	if (str == NULL)
 		return (NULL);
-	str = zero_precision(str, len, flags);
+	if (zero == 1)
+		str = zero_precision(str, len, flags);
 	if (flags->precision_state == NOT_SET || flags->precision <= *(int *)len)
 		return (str);
 	precision = flags->precision - *len;

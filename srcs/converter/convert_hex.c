@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 10:46:56 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 16:39:04 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:11:58 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,17 @@ int			convert_hex(t_pf *flags, int point)
 	char				*base;
 	char				*str;
 	unsigned long long	unbr;
+	int					zero;
 
 	unbr = 0;
 	base = base_selector(flags);
 	unbr_size(&unbr, flags);
 	str = ft_ulltoa_base(unbr, base);
 	len = ft_strlen(str);
-	if (zero_flag(0, flags) && unbr != 0)
+	zero = zero_flag(0, flags);
+	if (zero == 1 && unbr != 0)
 		flags->precision -= 2;
-	str = nbr_precision(str, &len, flags);
+	str = nbr_precision(str, &len, zero, flags);
 	if (point == 1 || unbr != 0)
 		str = hash_flag(str, &len, flags);
 	flags->width -= len;

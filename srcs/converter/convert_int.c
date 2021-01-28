@@ -6,7 +6,7 @@
 /*   By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:38:13 by jberredj          #+#    #+#             */
-/*   Updated: 2021/01/27 16:43:41 by jberredj         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:10:54 by jberredj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int	convert_int(t_pf *flags)
 	sign = nbr_size(&nbr, flags);
 	str = ft_lltoa(nbr);
 	len = ft_strlen(str);
-	zero_flag(sign, flags);
-	str = nbr_precision(str, &len, flags);
+	str = nbr_precision(str, &len, zero_flag(sign, flags), flags);
 	str = nbr_sign(str, sign, &len, flags);
 	flags->width -= len;
 	str = process_width(str, &len, ' ', flags);
@@ -75,8 +74,7 @@ int	convert_uint(t_pf *flags)
 	unbr_size(&unbr, flags);
 	str = ft_ulltoa(unbr);
 	len = ft_strlen(str);
-	zero_flag(0, flags);
-	str = nbr_precision(str, &len, flags);
+	str = nbr_precision(str, &len, zero_flag(0, flags), flags);
 	flags->width -= len;
 	str = process_width(str, &len, ' ', flags);
 	if (str == NULL)
