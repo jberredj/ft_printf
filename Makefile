@@ -6,7 +6,7 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/28 13:11:44 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/28 13:21:35 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,49 +40,40 @@ bonus: all
 $(NAME): minilibft $(MODULE) lib
 
 parser: objs
-	echo "Compiling Parser functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/parser/, $(PARSER)) $(CFLAGS)
 	mv *.o objs/
 
 checker: objs
-	echo "Compiling Checker functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/check_parser/, $(CHECKER)) $(CFLAGS)
 	mv *.o objs/
 
 converter: objs
-	echo "Compiling Converter functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/converter/, $(CONVERTER)) $(CFLAGS)
 	mv *.o objs/
 
 printer: objs
-	echo "Compiling Printer functions"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/, $(PRINTER)) $(CFLAGS) -D BUFFER_SIZE=$(BUFFER_SIZE)
 	mv *.o objs/
 
 minilibft: objs
-	echo "Compiling minilibft"
 	$(CC) -I $(HEADERS) -c $(addprefix srcs/minilibft/, $(MINILIBFT)) $(CFLAGS)
 	mv *.o objs/
 
 lib:
-	echo "Creating $(NAME)"
 	ar cr $(NAME) objs/*.o
 
 objs:
 	mkdir -p objs
 
 clean:
-	echo "Cleaning objects in objs and delete objs/"
 	rm -rf *.o
 	rm -rf objs
 
 fclean:
-	echo "Deleting $(NAME)"
 	rm -rf $(NAME)
 	make clean
 
 re:
 	make fclean
 	make all
-.SILENT:
 
