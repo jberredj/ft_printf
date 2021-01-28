@@ -6,4 +6,5 @@ main.c
 objs/
 À faire.txt
 srcs/check_parser/e_f_g_type_illegal.c
+boss/
 .vscode

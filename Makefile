@@ -6,13 +6,13 @@
 #    By: jberredj <jberredj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 20:41:52 by jberredj          #+#    #+#              #
-#    Updated: 2021/01/27 16:18:55 by jberredj         ###   ########.fr        #
+#    Updated: 2021/01/28 12:48:14 by jberredj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libftprintf.a
 CC				=	clang
-CFLAGS			=	-Wall -Werror -Wextra -g
+CFLAGS			=	-Wall -Werror -Wextra
 BUFFER_SIZE		=	64
 
 HEADERS			=	includes/
@@ -37,9 +37,9 @@ BONUS			=	-D BONUS=1
 
 all: $(NAME)
 
-$(NAME): minilibft $(MODULE) lib
-
 bonus: all
+
+$(NAME): minilibft $(MODULE) lib
 
 parser: objs
 	echo "Compiling Parser functions"
@@ -70,10 +70,6 @@ lib:
 	echo "Creating $(NAME)"
 	ar cr $(NAME) objs/*.o
 
-debug: CFLAGS	= -Wall -Wextra -g
-debug:
-	echo "COMPILING DEBUG EXECUTABLE"
-	$(CC) -I $(HEADERS) -g main_parser_test.c $(NAME) -o debug.out
 objs:
 	mkdir -p objs
 
